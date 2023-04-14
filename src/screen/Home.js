@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -8,15 +8,15 @@ import {
   StatusBar,
   ImageBackground,
   Platform,
-} from 'react-native';
+} from "react-native";
 
-import Card from '../components/Card';
-import STAR from '../assets/images/star.jpeg';
-import Fonts from '../constants/Fonts';
+import Card from "../components/Card";
+import STAR from "../assets/images/star.jpeg";
+import Fonts from "../constants/Fonts";
 
-const API_URL = 'https://rickandmortyapi.com/api/character';
+const API_URL = "https://rickandmortyapi.com/api/character";
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const [characters, setCharacters] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(1);
@@ -25,9 +25,9 @@ const Home = ({navigation}) => {
   const fetchCharacters = async () => {
     setLoading(true);
     const response = await fetch(`${API_URL}?page=${page}`);
-    const {results} = await response.json();
-    setCharacters(prevCharacters => [...prevCharacters, ...results]);
-    setPage(prevPage => prevPage + 1);
+    const { results } = await response.json();
+    setCharacters((prevCharacters) => [...prevCharacters, ...results]);
+    setPage((prevPage) => prevPage + 1);
     setLoading(false);
   };
 
@@ -58,8 +58,10 @@ const Home = ({navigation}) => {
           data={characters}
           numColumns={2}
           showsVerticalScrollIndicator={false}
-          keyExtractor={item => item.id.toString()}
-          renderItem={({item}) => <Card data={item} navigation={navigation} />}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <Card data={item} navigation={navigation} />
+          )}
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
@@ -74,12 +76,13 @@ const Home = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 0,
+    flex: 1,
   },
   header: {
-    color: 'white',
+    color: "white",
     fontFamily: Fonts.Luckiest,
     fontSize: 30,
-    textAlign: 'center',
+    textAlign: "center",
   },
   imageBack: {
     paddingTop: StatusBar.currentHeight,

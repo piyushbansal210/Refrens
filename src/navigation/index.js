@@ -1,21 +1,21 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-import Splash from '../screen/Splash';
-import Home from '../screen/Home';
-import Character from '../screen/Character';
-import Fonts from '../constants/Fonts';
+import Splash from "../screen/Splash";
+import Home from "../screen/Home";
+import Character from "../screen/Character";
+import Fonts from "../constants/Fonts";
 
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -29,12 +29,12 @@ export default function Navigation() {
           options={{
             headerShown: true,
             headerStyle: {
-              backgroundColor: '#161617',
+              backgroundColor: "#161617",
               elevation: 0,
             },
-            headerTitleAlign: 'center',
+            headerTitleAlign: "center",
             headerTitleStyle: {
-              color: 'white',
+              color: "white",
               fontFamily: Fonts.Luckiest,
               fontSize: 30,
             },
@@ -45,18 +45,18 @@ export default function Navigation() {
         <Stack.Screen
           name="Character"
           component={Character}
-          options={({route, navigation}) => ({
+          options={({ route, navigation }) => ({
             headerShown: true,
             headerStyle: {
-              backgroundColor: '#161617',
+              backgroundColor: "#161617",
               elevation: 0,
             },
             headerTitleStyle: {
-              color: 'white',
+              color: "white",
               fontFamily: Fonts.Luckiest,
               fontSize: 30,
               //   backgroundColor: 'green',
-              alignItems: 'center',
+              alignItems: "center",
               //   flex: 1,
             },
             title: route.params.name,
@@ -64,7 +64,7 @@ export default function Navigation() {
               <View style={styles.headerLeft}>
                 <AntDesign
                   name="left"
-                  color={'white'}
+                  color={"white"}
                   size={20}
                   style={styles.back}
                   onPress={() => navigation.goBack()}
@@ -80,10 +80,10 @@ export default function Navigation() {
 
 const styles = StyleSheet.create({
   back: {
-    alignItems: 'center',
+    alignItems: "center",
     // backgroundColor: 'red',
-    alignSelf: 'center',
-    justifyContent: 'center',
+    alignSelf: "center",
+    justifyContent: "center",
   },
   headerLeft: {
     // backgroundColor: 'orange',
