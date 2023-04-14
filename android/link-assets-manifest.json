@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Banger.ttf",
+      "sha1": "b18635c423bd1c88b0a0824906adb835c17559de"
+    },
+    {
+      "path": "src/assets/fonts/Luckiest.ttf",
+      "sha1": "ae30bd7f787aeb29f21962469044e5c5c59cb268"
+    },
+    {
+      "path": "src/assets/fonts/VT323.ttf",
+      "sha1": "81376245d931398d79a150e6d1a449b79f22149c"
+    }
+  ]
+}
